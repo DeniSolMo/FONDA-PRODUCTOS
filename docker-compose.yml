@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  # Tu microservicio
+  fonda-service:
+    build: .
+    ports:
+      - "7073:7073"
+    environment:
+      # Sobrescribimos la URL para que apunte al servicio 'mysqldb' definido abajo
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/fonda1
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=admin123
+    depends_on:
+      - mysqldb
+
+  # Base de datos MySQL en contenedor
+  mysqldb:
+    image: mysql:8.0
+    ports:
+      - "3307:3306" # Mapeamos al 3307 de tu PC para no chocar con tu MySQL local
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin123
+      - MYSQL_DATABASE=fonda1
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
