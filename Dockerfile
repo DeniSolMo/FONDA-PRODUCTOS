@@ -1,6 +1,6 @@
 FROM eclipse-temurin:17-jdk
 
-VOLUME /tmp
+#VOLUME /tmp
 
 ARG JAR_FILE=target/fonda1-0.0.1-SNAPSHOT.jar
 
