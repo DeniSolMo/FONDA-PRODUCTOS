@@ -31,7 +31,7 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> auth
                 // ====== ARCHIVOS PÚBLICOS (IMÁGENES) ======
-                .requestMatchers("/api/files/**").permitAll() // <- AGREGAR ESTA LÍNEA
+                .requestMatchers("/api/files/**").permitAll()
                 
                 // Productos
                 .requestMatchers(HttpMethod.GET, "/api/producto/**").authenticated()
