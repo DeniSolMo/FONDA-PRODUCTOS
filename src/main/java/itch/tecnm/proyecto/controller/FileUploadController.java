@@ -95,7 +95,7 @@ import itch.tecnm.proyecto.service.impl.FileStorageService;
 
 @RestController
 @RequestMapping("/api/files")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*"
 public class FileUploadController {
 
     private final FileStorageService storageService;
